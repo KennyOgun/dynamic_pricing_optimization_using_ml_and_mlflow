@@ -1,4 +1,4 @@
-**# Jewellery Price Optimization**
+#** Jewellery Price Optimization**
 
 **Project Objective**
 The goal is to develop an effective pricing strategy for jewellery by analyzing sales data and predicting optimal prices using machine learning. This involves:
