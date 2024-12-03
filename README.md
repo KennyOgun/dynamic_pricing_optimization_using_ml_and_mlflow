@@ -1,6 +1,7 @@
 # Jewellery Price Optimization
 
 **Project Objective**
+
 The goal is to develop an effective pricing strategy for jewellery by analyzing sales data and predicting optimal prices using machine learning. This involves:
 
   * Cleaning and preprocessing data to improve quality.
@@ -9,10 +10,12 @@ The goal is to develop an effective pricing strategy for jewellery by analyzing 
   * Providing insights to improve sales and profitability.
 
 **Dataset Overview**
+
   * Source: Gemineye jewellery sales data.
   * Size: 95,910 rows with features such as category, price, target gender, main metal, main gem, and main color.
     
 **Data Quality Issues:**
+
   * 16% of data (~15,452 rows) were corrupt and removed.
   * Presence of outliers (~804 rows), trimmed using the Isolation Forest algorithm.
   * Duplicates rows(2,589) were dropped.
@@ -55,24 +58,27 @@ The goal is to develop an effective pricing strategy for jewellery by analyzing 
   * Removed corrupt and irrelevant data.
   * Handled missing values using simple imputation (mean for numerical, mode for categorical).
   * Dropped Duplicates rows.
-  * 
+    
 **2. Feature Selection:**
   * Retained critical features (e.g., price, category, metal, gem).
   * Dropped irrelevant columns (e.g., Order ID, SKU Quantity).
-  * 
+   
 **3. Outlier Removal:**
   * Detected and removed outliers using the Isolation Forest algorithm.
-  * 
+    
 **4. Feature Correlation:**
   * Identified relationships using Phik correlation to guide feature selection.
-  * 
+   
 **Modeling and Evaluation**
 
 **Models Used:**
 
 **1. Random Forest Regressor**
+
 **2. XGBoost Regressor**
+
 **3. Gradient Boosting Regressor**
+
 **4. LightGBM Regressor**
     
 **Hyperparameter Tuning:**
@@ -83,7 +89,9 @@ The goal is to develop an effective pricing strategy for jewellery by analyzing 
 **Evaluation Metrics:**
 
 **R² (Goodness of Fit):** ~0.29 across models.
+
 **MAE (Mean Absolute Error):** Ranges between ~152 and ~153.
+
 **MSE (Mean Squared Error):** Ranges between ~53104 and ~53333.
 
 **Performance Summary:**
@@ -93,16 +101,16 @@ Close results from Random Forest, and LightGBM.
 
 **Recommendations for Business**
 
-**1. Invest in Data Quality and Expansion:*8
+**1. Invest in Data Quality and Expansion:**
 
   * Address gaps in data such as customer demographics, purchasing patterns, and product details.
   * Collect data on marketing influences (e.g., ads, promotions) and seasonal trends.
-  * 
+    
 **2. Improve Feature Engineering:**
 
   * Include variables like jewellery weight, purity levels, and certifications.
   * Analyze regional and seasonal demand patterns.
-  * 
+   
 **3. Leverage Insights for Strategy:**
     
   * Focus on female buyers and popular items (earrings, rings, pendants).
