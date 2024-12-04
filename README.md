@@ -49,6 +49,8 @@ Ensure you have the following installed:
 
 ├── requirements.txt           # List of dependencies
 
+├── jewellery_cleaned_data.csv  # Jewellery Cleaned Dataset
+
 ├── README.md                  # Documentation
 
 📦 **Installation**
