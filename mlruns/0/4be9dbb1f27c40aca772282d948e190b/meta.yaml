@@ -1,0 +1,15 @@
+artifact_uri: file:///c:/Users/Kenny%20Ogundana/OneDrive/Documents/amdari_projects/gemineye/mlruns/0/4be9dbb1f27c40aca772282d948e190b/artifacts
+end_time: 1733256460850
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+run_id: 4be9dbb1f27c40aca772282d948e190b
+run_name: Gradient Boosting
+run_uuid: 4be9dbb1f27c40aca772282d948e190b
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1733256456410
+status: 3
+tags: []
+user_id: Kenny Ogundana

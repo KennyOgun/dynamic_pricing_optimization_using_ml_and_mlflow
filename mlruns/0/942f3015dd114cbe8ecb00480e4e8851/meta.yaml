@@ -1,0 +1,15 @@
+artifact_uri: file:///c:/Users/Kenny%20Ogundana/OneDrive/Documents/amdari_projects/gemineye/mlruns/0/942f3015dd114cbe8ecb00480e4e8851/artifacts
+end_time: 1733256465239
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+run_id: 942f3015dd114cbe8ecb00480e4e8851
+run_name: Random Forest
+run_uuid: 942f3015dd114cbe8ecb00480e4e8851
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1733256458368
+status: 3
+tags: []
+user_id: Kenny Ogundana

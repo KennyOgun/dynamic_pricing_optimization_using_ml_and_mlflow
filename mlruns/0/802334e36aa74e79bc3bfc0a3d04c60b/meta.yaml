@@ -1,0 +1,15 @@
+artifact_uri: file:///c:/Users/Kenny%20Ogundana/OneDrive/Documents/amdari_projects/gemineye/mlruns/0/802334e36aa74e79bc3bfc0a3d04c60b/artifacts
+end_time: 1733320953711
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+run_id: 802334e36aa74e79bc3bfc0a3d04c60b
+run_name: XGBoost
+run_uuid: 802334e36aa74e79bc3bfc0a3d04c60b
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1733320949255
+status: 3
+tags: []
+user_id: Kenny Ogundana

@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/159733592759543863/bb5ee5ccfae74549a50aba5d6dafd20a/artifacts
+end_time: 1733334195834
+entry_point_name: ''
+experiment_id: '159733592759543863'
+lifecycle_stage: active
+run_id: bb5ee5ccfae74549a50aba5d6dafd20a
+run_name: Random Forest
+run_uuid: bb5ee5ccfae74549a50aba5d6dafd20a
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1733334151529
+status: 3
+tags: []
+user_id: Kenny Ogundana

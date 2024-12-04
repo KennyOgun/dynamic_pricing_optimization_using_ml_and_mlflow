@@ -1,0 +1,15 @@
+artifact_uri: file:///c:/Users/Kenny%20Ogundana/OneDrive/Documents/amdari_projects/gemineye/mlruns/0/c953c932fe3e456eba1d143ec9ec9352/artifacts
+end_time: 1733256378110
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+run_id: c953c932fe3e456eba1d143ec9ec9352
+run_name: LightGBM
+run_uuid: c953c932fe3e456eba1d143ec9ec9352
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1733256373887
+status: 3
+tags: []
+user_id: Kenny Ogundana

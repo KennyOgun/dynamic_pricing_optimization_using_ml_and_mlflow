@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/159733592759543863/3d4321d5455e48448b640c974b6af13d/artifacts
+end_time: 1733334658330
+entry_point_name: ''
+experiment_id: '159733592759543863'
+lifecycle_stage: active
+run_id: 3d4321d5455e48448b640c974b6af13d
+run_name: XGBoost
+run_uuid: 3d4321d5455e48448b640c974b6af13d
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1733334653103
+status: 3
+tags: []
+user_id: Kenny Ogundana
