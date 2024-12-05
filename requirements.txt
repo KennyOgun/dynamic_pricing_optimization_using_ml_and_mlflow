@@ -2,9 +2,9 @@ numpy
 pandas
 matplotlib
 seaborn
-wordcloud
 scikit-learn
-yellowbrick
 plotly
-tabulate
 scipy
+streamlit
+xgboost
+mlflow
