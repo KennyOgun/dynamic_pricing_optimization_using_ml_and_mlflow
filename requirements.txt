@@ -8,3 +8,4 @@ scipy
 streamlit
 xgboost
 mlflow
+lightgbm
