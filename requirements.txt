@@ -9,3 +9,4 @@ streamlit
 xgboost
 mlflow
 lightgbm
+requests
