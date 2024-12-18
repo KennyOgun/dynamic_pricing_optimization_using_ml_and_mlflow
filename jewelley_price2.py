@@ -100,6 +100,18 @@ def main():
         if df is not None:
             st.write("### Dataset Preview")
             st.dataframe(df.head())
+            st.subheader("Dataset Shape")
+            st.write(f"Shape: {df.shape}")
+            st.subheader("Dataset Description")
+            st.write("1. Brand ID: Identifier for jeweler brand.")
+            st.write("2. Price in USD: Jewelry price in US Dollars.")
+            st.write("3. Product gender (for male/female) (Target gender for jewelry piece).")
+            st.write("4. Main Color: Overall color of jewelry piece.")
+            st.write("5. Main metal: Main metal used for mounting.")
+            st.write("6. Main gem: Main gem mounted on jewelry piece.")
+            st.write("7. Category: Name of jewelry category e.g., earring.")
+
+        
         else:
             st.info("Upload a dataset to proceed.")
 
@@ -107,11 +119,44 @@ def main():
         if df is not None:
             st.subheader("Exploratory Data Analysis")
             st.write("### Distribution of Jewelry Categories")
+            category_gender_order = (
+                df.groupby('Category')
+                .size()
+                .sort_values(ascending=False)
+                .index
+            )
             fig, ax = plt.subplots(figsize=(8, 6))
-            sns.countplot(data=df, x='Category', hue='Target_Gender', ax=ax, palette="viridis")
+            sns.countplot(
+                data=df,
+                x='Category',
+                hue='Target_Gender',
+                ax=ax,
+                palette="viridis",
+                order=category_gender_order
+            )
             ax.set_title("Jewelry Category Distribution by Gender")
             ax.set_xticklabels(ax.get_xticklabels(), rotation=45)
             st.pyplot(fig)
+
+
+            category_order = (
+                df['Category']
+                .value_counts()
+                .index
+            )
+            st.write("### Jewellery Category Distribution")
+            fig, ax = plt.subplots(figsize=(8, 6))
+            sns.countplot(
+                data=df,
+                x='Category',
+                ax=ax,
+                palette="viridis",
+                order=category_order
+            )
+            ax.set_title("Bar Chart: Jewellery Category Distribution")
+            ax.set_xticklabels(ax.get_xticklabels(), rotation=45)
+            st.pyplot(fig)
+
         else:
             st.warning("Please upload a dataset to analyze.")
 
