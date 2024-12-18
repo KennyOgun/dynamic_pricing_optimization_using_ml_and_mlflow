@@ -81,7 +81,7 @@ def evaluate_model(y_test, preds, model_name):
     r2 = r2_score(y_test, preds)
     return {"Model": model_name, "MAE": mae, "MSE": mse, "R2": r2}
 
-@st.cache_resource(allow_output_mutation=True)
+@st.cache_resource
 def load_mlflow_model():
     model_uri = "models:/jewelry_price_model/production"  # Replace with your registered model path
     return mlflow.pyfunc.load_model(model_uri)
