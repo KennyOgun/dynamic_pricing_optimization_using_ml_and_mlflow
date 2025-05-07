@@ -1,4 +1,5 @@
 # Jewellery Price Optimization
+![image](https://github.com/user-attachments/assets/82ccb2ea-2ebc-43f5-b73e-f2444f92cc06)
 
 **Project Objective**
 
