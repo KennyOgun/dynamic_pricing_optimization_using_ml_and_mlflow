@@ -1,104 +1,184 @@
-# Jewellery Price Optimization
+# Dynamic Price Optimization Using ML and Mlflow
+
 ![image](https://github.com/user-attachments/assets/82ccb2ea-2ebc-43f5-b73e-f2444f92cc06)
 
-**Project Objective**
+# Project Overview
+The Dynamic Price Optimization Using ML and MLflow project focuses on building machine learning models to optimize pricing strategies while leveraging MLflow for model tracking and deployment. It involves data analysis, feature engineering, and understanding customer pricing behavior, with a strong emphasis on integrating pricing models into business workflows for actionable insights.
 
-The goal is to develop an effective pricing strategy for jewellery by analyzing sales data and predicting optimal prices using machine learning. This involves:
+# Business Introduction
 
-  * Cleaning and preprocessing data to improve quality.
-  * Identifying significant features that influence pricing.
-  * Applying machine learning models to predict jewellery prices.
-  * Providing insights to improve sales and profitability.
+The focal company is a luxury jewelry retailer known for its craftsmanship, quality, and innovation. With a global presence, the brand aims to cater to a diverse clientele. The company has consistently leveraged technology to enhance customer experiences, offering online customization and seamless e-commerce options. However, its pricing strategies currently rely on manual adjustments, leading to inefficiencies in capturing optimal revenue.
 
-**Dataset Overview**
-
-  * Source: Gemineye jewellery sales data.
-  * Size: 95,910 rows with features such as category, price, target gender, main metal, main gem, and main color.
+ Achievements:
+  - Leading in bespoke jewelry sales.
+  - Recognition for excellent customer service.
     
-**Data Quality Issues:**
+Unique Aspects:
+  - Seasonal pricing variations.
+  - Customization options influencing price variability.
 
-  * 16% of data (~15,452 rows) were corrupt and removed.
-  * Presence of outliers (~804 rows), trimmed using the Isolation Forest algorithm.
-  * Duplicates rows(2,589) were dropped.
-  * Final dataset: 77,322 rows with 7 key features.
+# Business Problem
 
-**Key Features Used**
+1. Overpricing risks losing price-sensitive customers.
+2. Under-pricing reduces profit margins.
+3. Lack of dynamic adjustments based on market trends, preferences, and competition.
+4. Inconsistent pricing strategies across regions and product lines.
+5. Absence of data-driven demand prediction.
 
-**Category:** Type of jewellery (e.g., earrings, rings, pendants).
+# Project Objective
 
-**Price (USD):** Target variable for optimization.
+  * Maximized Revenue: Data-driven pricing ensures optimal revenue generation by balancing volume and margins.
+  * Competitive Edge: Dynamic pricing enables quick adaptation to market changes.
+  * Improved Customer Retention: Personalized pricing strategies cater to different customer segments.
+  * Efficient Decision-Making: Automating pricing decisions reduces reliance on manual intervention.
+  * Actionable Insights: An ML-driven approach provides deeper insights into customer behavior and demand patterns.
 
-**Target Gender:** Primary buyer demographic (male/female).
+# Data Description
 
-**Main Color:** Color of the jewellery (e.g., red, yellow).
+The features contained in the dataset are:
+1. Order datetime: The time at which the order was placed.
+2. Order ID: Identifiers for the different orders placed.
+3. Purchased product ID: Identifiers for the different product ordered for.
+4. Quantity of SKU in the order: Quantity of jewelry pieces ordered for.
+5. Category ID: Identifier for the jewelry category.
+6. Category alias: Name of jewelry category e.g. earring.
+7. Brand ID: Identifier for jeweler brand
+8. Price in USD: Jewelry price in US Dollars- target variable for optimization.
+9. User ID: Identifier for user/customer
+10. Product gender: (for male/female) 
+11. Main Color: Overall color of jewelry piece -e.g., red, yellow.
+12. Main metal: Main metal used for mounting- e.g., gold, silver
+13. Main gem: Main gem mounted on jewelry piece e.g. diamond, sapphire.
 
-**Main Metal:** Material used (e.g., gold, silver).
+# Data Preprocessing 
 
-**Main Gem:** Gem type (e.g., diamond, sapphire).
+1. Missing Values: About nine(9) features had missing values varying from 5% - 50%(Target_Gender (50%) and Main_Gem (35%).
+2. Duplicates: The data had 2.6%  duplicate rows.
+3. Feature Variety: Low variety in SKU_Quantity, Main_Color, and Main_Metal.
+4. Outliers in Price: Price ranges from $0.99 to $34,448.60, indicating possible outliers or premium items.
+5. Data Quality Issues: Incorrect values in Category (e.g., '451.10', '283.49') need correction.
 
-**Exploratory Data Analysis (EDA)**
+## Next Steps for Data Preparation
+1. Data Exploration 
+2. Address missing values and duplicates
+3. Correct inconsistent or corrupt entries(about 16%).
+4. Handle outliers in the price feature.
+5. Normalize categorical and numerical features for modelling.
+6. Retained critical features like price, category, metal, gem and dropped irrelevant columns e.g., Order ID, SKU Quantity
 
-**Price Distribution:**
+# Exploratory Data Analysis (EDA)
 
-  * Highly skewed with prices ranging from £30.99 to £34,448.60.
-  * Mean price: £362.21; Standard deviation: £444.16.
-    
-**Buyer Demographics:**
+1. Jewelry Category Distribution
 
-  * 99.2% of buyers are female; males account for only 0.8%.
-    
-**Popular Items:**
+ <img width="597" alt="image" src="https://github.com/user-attachments/assets/0fcfdc0d-9e89-46ca-b8c2-59dce7ccd596" />
 
-  * Earrings, rings, and pendants account for 87% of sales.
-  * Most common gem: **Diamond**.
-  * Most common metal: **Gold**.
+Earrings, rings, and pendants account for 87% of sales.
 
-**Data Preprocessing**
+2. Buyer Demographics
 
-**1. Cleaning:**
-  * Removed corrupt and irrelevant data.
-  * Handled missing values using simple imputation (mean for numerical, mode for categorical).
-  * Dropped Duplicates rows.
-    
-**2. Feature Selection:**
-  * Retained critical features (e.g., price, category, metal, gem).
-  * Dropped irrelevant columns (e.g., Order ID, SKU Quantity).
+<img width="515" alt="image" src="https://github.com/user-attachments/assets/2c8acb96-8819-4828-91b8-a19341aaa749" />
+
+
+The majority of their customers are 99.2% female and males account for only 0.8%.
+
+# Feature Engineering, Selection, and Dimensionality Reduction
+
+1. Correlation Matrix Heatmap 
+
+<img width="431" alt="image" src="https://github.com/user-attachments/assets/c2ad3f89-5451-46bd-83f9-9276cadcccac" />
+
+The heatmap shows the following  associations of Price;
+
+   * Moderate: with Main_Metal(0.40) and Category(0.31),
+   * low: with  Main_Metal(0.19) and Main_Colour(0.22)
+   * extemely low: with Brand_ID(0.11) and Target_Gender (0.06).
+
+# Model Selection, Training, Evaluation and MLflow set-up 
+
+1. **Models Chosen(ML):**
    
-**3. Outlier Removal:**
-  * Detected and removed outliers using the Isolation Forest algorithm.
-    
-**4. Feature Correlation:**
-  * Identified relationships using Phik correlation to guide feature selection.
+Selected for their strong performance in regression tasks and ability to handle nonlinear relationships.
+These models are known for their robustness, scalability, and hyperparameter tuning flexibility.
+
+<img width="724" alt="image" src="https://github.com/user-attachments/assets/858a5e21-d95d-4850-8a5b-8efbd8a3808f" />
+
+
+     
+2. **Model Training:** Hyperparameter tuning using GridSearchCV with 5-fold cross-validation was applied to ML models.
+ 
+  * Best parameters identified:
    
-**Modeling and Evaluation**
+     * RandomForestRegressor: max_depth=30, min_samples_split=2, n_estimators=200.
+     * XGBRegressor: learning_rate=0.2, max_depth=10, n_estimators=300.
+     * GradientBoostingRegressor: learning_rate=0.2, max_depth=7, n_estimators=300.
+     * LGBMRegressor: learning_rate=0.3, num_leaves=31, n_estimators=300.
 
-**Models Used:**
 
-**1. Random Forest Regressor**
+ 3. **MLflow Model Tracking Experiment Snapshot:**
 
-**2. XGBoost Regressor**
+<img width="742" alt="image" src="https://github.com/user-attachments/assets/0c1fb135-e8c3-4b0c-bbb5-f26c92cbea92" />
 
-**3. Gradient Boosting Regressor**
 
-**4. LightGBM Regressor**
-    
-**Hyperparameter Tuning:**
+ * Inspection of the models using MLflow tracking reveals the following key patterns:
+  * The number of estimators ranges from 100 to 300 across all models.
+  * The maximum depth varies between 7 and 31.
 
-  * Performed using grid search.
-  * MLflow was utilized to track experiments, hyperparameters, and metrics.
+
+# Evaluation Metrics and Results 
+
+The metrics align with regression task objectives and provide a holistic evaluation.
+
+1. R² (Coefficient of Determination): Measures goodness of fit.
+2. MAE (Mean Absolute Error): Evaluates average prediction error.
+3. MSE (Mean Squared Error): Penalizes larger errors to assess overall variance.
+
+<img width="308" alt="image" src="https://github.com/user-attachments/assets/a64fb25a-1c04-4cd9-8b62-7e725c8ffe36" />
+
+
+These similarities in hyperparameters explain why the models deliver closely matching results:
+    * R² (Goodness of Fit): ~0.29 for all models.
+    * MAE (Mean Absolute Error) and MSE(Mean Squared Error): Ranges between ~152 and ~153 and ~53104 and ~53333 respectively,  indicating similar average 
+      prediction errors.
+
+**Results:**
+
+XXGBoost & Gradient Boosting Regressor with the highest R² (0.2982), other models had comparable but slightly lower R² scores (~0.29).
+
+The results indicate limited predictive power, suggesting that the current dataset lacks sufficient features and data quality to model jewellery prices effectively.
+
+# Recommendations:
+
+1. **Invest in Data Quality and Expansion**
    
-**Evaluation Metrics:**
+   The dataset faced a 20% reduction due to errors. It also highlight significant limitations such as:
+   
+     * Lack of diverse and detailed features (e.g. customer demographics, promotional campaigns, and purchasing patterns).
+     * Insufficient data samples for certain categories (e.g., male buyers and less common gems/metals).
+     * Jewellery-specific attributes: Weight, purity levels, and certifications.
+     * Marketing data: Ad campaigns, promotions, and customer engagement metrics.
+     * External factors: Seasonality and regional trends impacting demand.
 
-**R² (Goodness of Fit):** ~0.29 across models.
+* Action Plan:
+  
+    * Expand Customer Data: Collect information on age, location, and income level.
+    * Enrich Product Features: Include design specifications, customization options, and seasonal trends.
+    * Enhance Sales History: Track discounts, bundling strategies, and cross-sale patterns..
 
-**MAE (Mean Absolute Error):** Ranges between ~152 and ~153.
+2. Leverage Insights for Business Strategy: Utilize data-driven insights to refine business operations;
+   
+   * Target Female Customers: Focus on earrings, rings, and pendants, which dominate sales.
+   * Optimize Inventory and Promotions: Prioritize popular items like gold jewellery with diamonds.
+   * Engage Male Buyers: Develop targeted campaigns to drive purchases in niche categories like rings.
 
-**MSE (Mean Squared Error):** Ranges between ~53104 and ~53333.
+In conclusion, investing in data quality, expanding feature diversity, and leveraging insights for strategic decision-making will empower the company to optimize pricing strategies, improve operational efficiency, and enhance profitability.
 
-**Performance Summary:**
 
-**Best-performing model: XGBoost and Gradient Boosting Regressor.**
-Close results from Random Forest, and LightGBM.
+
+
+################
+
+
+
 
 **Recommendations for Business**
 
