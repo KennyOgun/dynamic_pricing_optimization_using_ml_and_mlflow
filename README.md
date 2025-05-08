@@ -142,7 +142,7 @@ These similarities in hyperparameters explain why the models deliver closely mat
 
 **Results:**
 
-XXGBoost & Gradient Boosting Regressor with the highest R² (0.2982), other models had comparable but slightly lower R² scores (~0.29).
+XGBoost & Gradient Boosting Regressor with the highest R² (0.2982), other models had comparable but slightly lower R² scores (~0.29).
 
 The results indicate limited predictive power, suggesting that the current dataset lacks sufficient features and data quality to model jewellery prices effectively.
 
@@ -171,54 +171,23 @@ The results indicate limited predictive power, suggesting that the current datas
    * Engage Male Buyers: Develop targeted campaigns to drive purchases in niche categories like rings.
 
 In conclusion, investing in data quality, expanding feature diversity, and leveraging insights for strategic decision-making will empower the company to optimize pricing strategies, improve operational efficiency, and enhance profitability.
-
-
-
-
-################
-
-
-
-
-**Recommendations for Business**
-
-**1. Invest in Data Quality and Expansion:**
-
-  * Address gaps in data such as customer demographics, purchasing patterns, and product details.
-  * Collect data on marketing influences (e.g., ads, promotions) and seasonal trends.
     
-**2. Improve Feature Engineering:**
-
-  * Include variables like jewellery weight, purity levels, and certifications.
-  * Analyze regional and seasonal demand patterns.
-   
-**3. Leverage Insights for Strategy:**
-    
-  * Focus on female buyers and popular items (earrings, rings, pendants).
-  * Develop campaigns to target male buyers in niche categories like rings.
-  * Increase inventory of high-demand items (e.g., gold jewellery with diamonds).
-    
-**Future Work**
+# Future Work
 
   * Incorporate additional data sources for better feature diversity.
   * Explore advanced deep learning models for price prediction.
   * Perform market segmentation for targeted pricing strategies.
 
-**How to Run the Project**
+## How to Run the Project
 
   * Clone the repository.
   * Install dependencies from requirements.txt.
   * Run the Jupyter Notebook or the Python scripts to preprocess data and train models.
   * Use MLflow for model tracking and experiment monitoring.
     
-**Technologies Used**
+## Technologies Stack**
 
   * Programming: Python (Pandas, NumPy, Scikit-learn, XGBoost, LightGBM)
   * Visualization: Matplotlib, Seaborn, Plotly
   * Experiment Tracking: MLflow
-  * Outlier Detection: Isolation Forest Algorithm
-
-**Conclusion**
-
-This project demonstrates how machine learning can be used for price optimization in the jewellery industry. By addressing data quality issues, applying advanced regression models, and leveraging insights, businesses can make informed pricing decisions and maximize profitability.
-
+    
